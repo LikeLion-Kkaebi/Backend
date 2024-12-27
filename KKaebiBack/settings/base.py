@@ -15,7 +15,7 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 SECRET_KEY = env('DJANGO_SECRET_KEY')
 DEBUG = env('DEBUG')
-CSRF_TRUSTED_ORIGINS = env('CSRF_TRUSTED')
+CSRF_TRUSTED_ORIGINS = ['*']
 
 #ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS')
 
