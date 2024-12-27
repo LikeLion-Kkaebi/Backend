@@ -36,6 +36,7 @@ class User(AbstractUser):
     house = models.ForeignKey(House, on_delete=models.CASCADE, 
                               null=True, blank=True, related_name='users_house')
     houseworkTag = models.ManyToManyField(HouseworkTag, related_name='users_houseworktag', blank=True)
+    is_new_user = models.BooleanField(default=True, null=True, blank=True)
     plan = models.CharField(max_length=10, choices=PLAN_CHOICES, default=BASIC)
     
     def save(self, *args, **kwargs):
