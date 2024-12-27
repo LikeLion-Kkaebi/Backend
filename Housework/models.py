@@ -10,7 +10,7 @@ class Housework(models.Model):
     tag = models.ForeignKey(HouseworkTag, on_delete=models.CASCADE, related_name='user_housework')
 
     houseworkId = models.AutoField(primary_key=True)
-    houseworkDate = models.DateField('date published', auto_now_add=True)
+    houseworkDate = models.DateField('date published', blank=True, null=True)
     houseworkPlace = models.CharField(max_length=100, blank=True, null=True)
     houseworkDetail = models.CharField(max_length=100, blank=True, null=True)
     houseworkDone = models.BooleanField(default=False)
