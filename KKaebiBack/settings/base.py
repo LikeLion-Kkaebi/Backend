@@ -15,7 +15,9 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 SECRET_KEY = env('DJANGO_SECRET_KEY')
 DEBUG = env('DEBUG')
-CSRF_TRUSTED_ORIGINS = ['*']
+CSRF_TRUSTED_ORIGINS = [
+    'https://kkaebi.site', 'https://api.kkaebi.site', 'http://43.202.189.40'
+]
 
 #ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS')
 
