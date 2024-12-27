@@ -73,6 +73,8 @@ class CharacterCreateView(views.APIView):
         user = request.user
         new_character = request.data.get('character')
         user.userCharacter = new_character
+        user.is_new_user = False
+        
         user.save() 
 
         serializer = UserHouseworkSerializer(user)
@@ -206,6 +208,7 @@ class KakaoUserInfoView(views.APIView):
                 "user": {
                     "id": user.id,
                     "nickname": user.nickname,
+                    "is_new_user": user.is_new_user
                 },
                 "token": str(token),
             }, status=200)
