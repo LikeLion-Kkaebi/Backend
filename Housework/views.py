@@ -29,6 +29,15 @@ class HouseworkPostView(views.APIView):
             return Response({'message':'Housework post 성공', 'data':serializer.data}, status=status.HTTP_201_CREATED)
         return Response({'message':'Housework post 실패', 'error':serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
 
+class HouseworkDeleteView(views.APIView):
+    permission_classes = [IsAuthenticated]
+    
+    def delete(self, request, housework_id, format=None):
+        housework = get_object_or_404(Housework, houseworkId=housework_id)
+        housework.delete()
+
+        return Response({'message': 'Housework delete 성공'}, status=status.HTTP_200_OK)
+
 class HomeworkUserPostView(views.APIView):
     permission_classes = [IsAuthenticated]
 
