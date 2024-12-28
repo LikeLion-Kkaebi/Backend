@@ -89,6 +89,8 @@ class RemoveAccountView(views.APIView):
 
     def delete(self, request):
         user = request.user
+        user.is_new_user = True
+        user.save()
 
         try:
             user.delete()
