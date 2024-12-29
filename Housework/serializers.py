@@ -13,8 +13,7 @@ class HouseworkTagSerializer(serializers.Serializer):
 
 class HouseworkSerializer(serializers.ModelSerializer):
     user=UserHouseworkSerializer(read_only=True)
-    tag=HouseworkTagSerializer(read_only=True)
-    houseworkDone=False
+    tag=HouseworkTagSerializer(read_only=True) 
 
     class Meta:
         model = Housework
@@ -24,7 +23,6 @@ class HouseworkSerializer(serializers.ModelSerializer):
 class CalendarHouseworkSerializer(serializers.ModelSerializer):
     user=UserListSerializer(read_only=True)
     tag=HouseworkTagSerializer(read_only=True)
-    houseworkDone=False
 
     class Meta:
         model = Housework
