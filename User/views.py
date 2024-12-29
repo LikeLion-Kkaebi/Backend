@@ -149,7 +149,7 @@ class KakaoLoginCallbackView(views.APIView):
         if not code:
             return Response({"message": "code 없음"}, status=400)
 
-        return_URL = f"https://api.kkaebi.site/user/login/kakao/callback/"
+        return_URL = f"https://kkaebi.vercel.app/user/login/kakao/callback/"
         query_params = urlencode({"code": code})
         return redirect(f"{return_URL}?{query_params}")
 
