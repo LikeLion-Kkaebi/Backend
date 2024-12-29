@@ -64,7 +64,7 @@ class HomeworkUserPostView(views.APIView):
 
         try:
             housework = Housework.objects.get(houseworkId=housework_id)
-            user = User.objects.get(id=manager)
+            user = User.objects.get(nickname=manager)
 
             housework.user = user
             housework.save()
