@@ -16,6 +16,11 @@ def check_today_tasks_done(sender, instance, **kwargs):
     if today_tasks.filter(houseworkDone=False).exists():
         return
 
+    if user is None:
+        return 
+    if not user.house:
+        return
+    
     house = user.house
     if house:
         family_members = User.objects.filter(house=house).exclude(id=user.id)
