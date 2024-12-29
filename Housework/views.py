@@ -25,6 +25,8 @@ class HouseworkPostView(views.APIView):
         if serializer.is_valid():
             tag_id = request.data.get('tag')
             housework_tag = get_object_or_404(HouseworkTag, id=tag_id)
+            if housework_tag is None:
+                return Response({'message': '해당하는 tag id가 없습니다', 'error': str(e)}, status=status.HTTP_400_BAD_REQUEST)
             serializer.save(tag=housework_tag)
             return Response({'message':'Housework post 성공', 'data':serializer.data}, status=status.HTTP_201_CREATED)
         return Response({'message':'Housework post 실패', 'error':serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
