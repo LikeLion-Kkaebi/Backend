@@ -207,8 +207,8 @@ ASGI_APPLICATION = 'KKaebiBack.asgi.application'
 CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels.layers.InMemoryChannelLayer',
-        "CONFIG": {
-            "hosts": ["redis://127.0.0.1:6379"],  # URL 형식
-        },
+        #"CONFIG": {
+        #    "hosts": ["redis://127.0.0.1:6379"],  # URL 형식
+        #},
     },
 }
